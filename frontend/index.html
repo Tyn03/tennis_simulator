@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tennis Match Simulator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Tennis Match Simulator</h1>
+    <div>
+        <label>
+            Player 1 Name:
+            <input type="text" id="player1Name">
+        </label>
+        <label>
+            Player 1 Level (1-10):
+            <input type="number" id="player1Level" min="1" max="10" value="1">
+        </label>
+    </div>
+    <div>
+        <label>
+            Player 2 Name:
+            <input type="text" id="player2Name">
+        </label>
+        <label>
+            Player 2 Level (1-10):
+            <input type="number" id="player2Level" min="1" max="10" value="1">
+        </label>
+    </div>
+    <button onclick="generatePoints()">Generate Points</button>
+    <button onclick="sendPoints()">Calculate Score</button>
+    <div>
+        <h2>Points List</h2>
+        <ul id="pointsList"></ul>
+    </div>
+    <div id="matchResult"></div>
+    <script src="script.js"></script>
+</body>
+</html>

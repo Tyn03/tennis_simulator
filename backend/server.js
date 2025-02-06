@@ -15,6 +15,8 @@ app.post('/calculate-score', (req, res) => {
     const sets = [{ player1: 0, player2: 0 }, { player1: 0, player2: 0 }, { player1: 0, player2: 0 }];
     let currentGame = { player1: 0, player2: 0 };
     let currentSet = 0;
+    let player1SetsWon = 0;
+    let player2SetsWon = 0;
     let winner = null;
 
     for (const point of points) {
@@ -35,12 +37,20 @@ app.post('/calculate-score', (req, res) => {
 
             // Check if the set is won
             if ((sets[currentSet].player1 >= 6 || sets[currentSet].player2 >= 6) && Math.abs(sets[currentSet].player1 - sets[currentSet].player2) >= 2) {
+                
+                if (sets[currentSet].player1 > sets[currentSet].player2) {
+                    player1SetsWon += 1;
+                    console.log(`Set ${currentSet + 1} winner: ${player1Name}`);
+                } else {
+                    player2SetsWon += 1;
+                    console.log(`Set ${currentSet + 1} winner: ${player2Name}`);
+                }
                 currentSet += 1;
-                if (currentSet >= 3) {
-                    const totalPlayer1Sets = sets[0].player1 + sets[1].player1 + sets[2].player1;
-                    const totalPlayer2Sets = sets[0].player2 + sets[1].player2 + sets[2].player2;
-                    winner = totalPlayer1Sets > totalPlayer2Sets ? player1Name : player2Name;
-                    break;
+                // Check if the match is won
+                console.log()
+                if (player1SetsWon >= 2 || player2SetsWon >= 2) {
+                    winner = player1SetsWon > player2SetsWon ? player1Name : player2Name;
+                    
                 }
             }
         }

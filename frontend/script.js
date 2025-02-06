@@ -16,6 +16,7 @@ function generatePoints() {
     }
 
     displayPoints();
+    updateSummary();
 }
 
 function displayPoints() {
@@ -26,6 +27,21 @@ function displayPoints() {
         li.textContent = `Point ${index + 1}: Won by ${point}`;
         pointsList.appendChild(li);
     });
+}
+
+function updateSummary() {
+    const player1Name = document.getElementById('player1Name').value;
+    const player2Name = document.getElementById('player2Name').value;
+
+    // Tính tổng số điểm mà mỗi người chơi đã thắng
+    const player1Points = points.filter(point => point === player1Name).length;
+    const player2Points = points.filter(point => point === player2Name).length;
+
+    // Cập nhật bảng tổng kết
+    document.getElementById('player1SummaryName').textContent = player1Name;
+    document.getElementById('player2SummaryName').textContent = player2Name;
+    document.getElementById('player1SummaryPoints').textContent = player1Points;
+    document.getElementById('player2SummaryPoints').textContent = player2Points;
 }
 
 async function sendPoints() {

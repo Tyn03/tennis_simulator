@@ -28,6 +28,30 @@
             <input type="number" id="player2Level" min="1" max="10" value="1">
         </label>
     </div>
+
+    <div id="summary">
+        <h2>Summary</h2>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Player</th>
+                    <th>Total Points Won</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td id="player1SummaryName">Player 1</td>
+                    <td id="player1SummaryPoints">0</td>
+                </tr>
+                <tr>
+                    <td id="player2SummaryName">Player 2</td>
+                    <td id="player2SummaryPoints">0</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
     <button onclick="generatePoints()">Generate Points</button>
     <button onclick="sendPoints()">Calculate Score</button>
     <div>

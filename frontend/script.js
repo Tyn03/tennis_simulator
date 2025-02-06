@@ -49,7 +49,7 @@ async function sendPoints() {
     const player2Name = document.getElementById('player2Name').value;
 
     try {
-        const response = await fetch('http://localhost:5000/calculate-score', {
+        const response = await fetch('https://tennis-simulator.onrender.com/calculate-score', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

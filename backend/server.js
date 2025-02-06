@@ -50,7 +50,7 @@ app.post('/calculate-score', (req, res) => {
                 console.log()
                 if (player1SetsWon >= 2 || player2SetsWon >= 2) {
                     winner = player1SetsWon > player2SetsWon ? player1Name : player2Name;
-                    
+                    break;
                 }
             }
         }
